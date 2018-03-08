@@ -72,7 +72,7 @@ def draw_circles1():
         x = k * 10
         circle = rg.Circle(center, x)
         circle.attach_to(window)
-        window.render()
+        window.render(0.05)
 
     window.close_on_mouse_click()
 
@@ -121,7 +121,7 @@ def draw_circles2():
     print('Running draw_circles2:  See graphics window')
     print('--------------------------------------------------')
 
-    
+
 
 def print_sequence3():
     """
