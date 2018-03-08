@@ -13,7 +13,7 @@ def main():
     run_test_draw_circles()
     # Un-comment the next lines when you are ready to use them.
     run_test_better_draw_circles()
-    #run_test_even_better_draw_circles()
+    run_test_even_better_draw_circles()
 
 
 # ----------------------------------------------------------------------
@@ -64,7 +64,7 @@ def draw_circles():
     window.close_on_mouse_click()
 
 # ----------------------------------------------------------------------
-# TODO: 2.
+# DONE: 2.
 #   First, RUN this program.  You will see that draw_circles draws
 #   concentric circles whose radii vary by 10.
 #
@@ -122,7 +122,7 @@ def better_draw_circles(r):
 
 
 # ----------------------------------------------------------------------
-# TODO: 3.
+# DONE: 3.
 #   In the previous exercise, you made a MORE POWERFUL version
 #   of draw_circles by introducing a PARAMETER for the amount by
 #   which the radii of the concentric circles increase.
@@ -153,25 +153,29 @@ def better_draw_circles(r):
 
 def run_test_even_better_draw_circles():
     """ Tests the   even_better_draw_circles   function. """
-    # ------------------------------------------------------------------
-    # Students:
-    #   Do NOT touch this function - it has no TODO in it.
-    # ------------------------------------------------------------------
+
     print()
     print('--------------------------------------------------')
     print('Testing  draw_circles:  See graphics window')
     print('--------------------------------------------------')
-    better_draw_circles()
+    even_better_draw_circles(5, 80, 150, 100, 'blue', 0.02)
 
 
-def even_better_draw_circles(r, circles, x, y, color, delay ):
+def even_better_draw_circles(r, num_circles, x, y, c, delay):
     window = rg.RoseWindow(400, 400)
     center = rg.Point(x, y)
-    
 
+    for k in range(num_circles):
+        best_circle = rg.Circle(center, r * k)
+        best_circle.attach_to(window)
+        best_circle.outline_color = c
+        window.render(delay)
 
+    window.close_on_mouse_click()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
+
+
 main()
